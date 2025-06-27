@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.bg-main {
+  background: #383739;
+}
+
+.notification {
+  animation: fade-in-left ease-in-out 1.20s;
+}
+@keyframes fade-in-left{
+  0%{
+    opacity: 0;
+    transform: translate3d(-200%, 0, 0);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.nobar::-webkit-scrollbar {display: none;}
+::-webkit-scrollbar:horizontal {height: 5px;}
+::-webkit-scrollbar {width: 5px;}
+::-webkit-scrollbar-thumb {background: #ccc; }
+.se-wrapper-inner.se-wrapper-wysiwyg.sun-editor-editable {
+    min-height: 150px !important;
+    max-height: 500px;
+    overflow-y: auto !important;
+}
