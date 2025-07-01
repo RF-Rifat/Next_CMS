@@ -85,3 +85,61 @@
 - 🔗 View live page: Click external link button  
 
 All operations are fully connected to MongoDB, with real-time interface updates for all CRUD operations.
+
+
+# USER AUTHENTICATION
+
+
+## [1.1.0] - 2025-07-01
+
+### 🚀 WordPress-like Authentication, User Management, and Role-Based Access
+
+---
+
+#### 🔒 Authentication & Session
+- Session-based authentication using secure HTTP-only cookies
+- Admin login via credentials in `.env` (`ADMIN_EMAIL`, `ADMIN_PASS`)
+- All other users authenticate via MongoDB
+- Login UI supports only email and password (no mobile/OTP)
+
+#### 👤 User Management (Admin Area)
+- Dynamic user list with real-time CRUD (add, edit, delete, assign roles)
+- Add/Edit user form supports:
+  - Username (required)
+  - Email (required)
+  - First Name
+  - Last Name
+  - Website
+  - Password (required for add, optional for edit)
+  - Send User Notification (checkbox, placeholder)
+  - Role(s) (multi-select, default Subscriber)
+- Unique username and email enforced
+- Passwords are securely hashed
+- Env admin user is protected from edit/delete
+
+#### 🛡️ Role-Based Access (WordPress-style)
+- `/nx-admin` area protected for all users with allowed roles (Administrator, Editor, Author, Contributor, Subscriber)
+- Only users with Administrator role can manage users
+- Role checks are performed on the backend and frontend
+- Utility for checking allowed roles in layouts
+- Foundation for per-page/per-action role/capability checks (WordPress-style granularity)
+
+#### 🧩 UI/UX Improvements
+- User management UI is fully dynamic and matches WordPress admin experience
+- Add/Edit user modal supports all fields and multi-role assignment
+- Success/error messages and redirects for all user actions
+
+#### 🗂 Database Schema: `users` collection
+- `username`, `email`, `firstName`, `lastName`, `website`, `password`, `roles` (array), `role` (first role), `createdAt`
+
+---
+
+#### ✅ Usage Summary:
+- ➕ Add new users: `/nx-admin/users/add`
+- 👥 View/manage users: `/nx-admin/users`
+- ✏️ Edit user: Inline modal in user list
+- ❌ Delete user: Button in user list (except env admin)
+- 🔐 Login: `/auth` (admin via .env, others via MongoDB)
+- 🛡️ Role-based access: All admin pages protected by role
+
+---
