@@ -98,7 +98,7 @@ export default function LayoutsPage() {
               </div>
 
               <div className="flex gap-2">
-                <Link href={`/layout/${layout._id}`}>
+                <Link href={`/nx-admin/layouts/${layout._id}`}>
                   <button className="px-3 py-1.5 text-sm font-medium rounded-md transition-colors bg-gray-200 text-gray-900 hover:bg-gray-300">
                     Edit
                   </button>

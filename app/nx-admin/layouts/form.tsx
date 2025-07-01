@@ -345,7 +345,7 @@ export default function LayoutForm({ initialData }: LayoutFormProps) {
       if (data.success) {
         alert("Layout saved successfully!")
         if (!initialData) {
-          router.push("/layout")
+          router.push("/nx-admin/layouts")
         }
       } else {
         alert("Failed to save layout: " + (data.error || "Unknown error"))
